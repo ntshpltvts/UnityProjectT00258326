@@ -7,11 +7,16 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     //public Rigidbody theRB;
     public float jumpForce;
+    public CharacterController controller;
+
+    private Vector3 moveDirection;
+    public float gravityScale;
 
     // Start is called before the first frame update
     void Start()
     {
         //theRB = GetComponent<Rigidbody>();
+        controller =  GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -23,5 +28,14 @@ public class PlayerController : MonoBehaviour
         {
             theRB.velocity = new Vector3(theRB.velocity.x, jumpForce, theRB.velocity.z);
         }*/
+
+        moveDirection = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, 0f, Input.GetAxis("Vertical") * moveSpeed);
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            moveDirection.y = jumpForce;
+        }
+        moveDirection.y = moveDirection.y + (Physics.gravity.y * gravityScale);
+        controller.Move(moveDirection * Time.deltaTime);
     }
 }
