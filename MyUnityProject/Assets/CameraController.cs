@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,9 +25,6 @@ public class CameraController : MonoBehaviour
         }
         pivot.transform.position=target.transform.position;
         pivot.transform.parent=target.transform;
-
-        Cursor.lockState = CursorLockMode.Locked;
-
     }
 
     // Update is called once per frame
@@ -80,3 +77,4 @@ public class CameraController : MonoBehaviour
 
     }
 }
+//This script is from the YouTube chanell "gamesplusjames" */
